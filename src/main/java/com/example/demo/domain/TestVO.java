@@ -1,9 +1,7 @@
 package com.example.demo.domain;
 
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -11,16 +9,18 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 
-@Getter
-@Setter
-@ToString
+@Data
 @Entity
-@Table(name="test")
+@Table(name="test2")
 public class TestVO {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
+
     String name;
+
+    @Transient
+    String sss;
 
     @CreationTimestamp
     private Timestamp regdate;
